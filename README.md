@@ -3,12 +3,38 @@ Installation
 
 Step 1: Download the Bundle
 ---------------------------
-
+!to implement!
 Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
+```bash
+$ composer require nz-portfolio
+```
+
+
+put this on composer.json and run composer update
 
 ```bash
-$ composer require <package-name> "~1"
+    require:{
+        // ...
+        "nz/portfolio-bundle": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "nz/portfolio-bundle",
+                "version": "dev-master",
+                "dist": {
+                    "url": "https://github.com/NadirZenith/PortfolioBundle/archive/master.zip",
+                    "type": "zip"
+                },
+                "autoload": {
+                    "psr-4": { "Nz\\PortfolioBundle\\": "" }
+                }
+            }
+        }
+    ],
+
 ```
 
 This command requires you to have Composer installed globally, as explained
@@ -41,4 +67,12 @@ class AppKernel extends Kernel
 
     // ...
 }
+```
+
+
+Step 3: Extend the bundle
+-------------------------
+
+```bash
+php app/console sonata:easy-extends:generate NzPortfolioBundle --des=src
 ```
