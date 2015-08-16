@@ -116,6 +116,30 @@ class NzPortfolioExtension extends Extension
             ),
             'orphanRemoval' => false,
         ));
+        
+        //work gallery
+        $collector->addAssociation($config['class']['work'], 'mapManyToOne', array(
+            'fieldName' => 'gallery',
+            'targetEntity' => $config['class']['gallery'],
+            'cascade' =>
+            array(
+                0 => 'remove',
+                1 => 'persist',
+                2 => 'refresh',
+                3 => 'merge',
+                4 => 'detach',
+            ),
+            'mappedBy' => NULL,
+            'inversedBy' => NULL,
+            'joinColumns' =>
+            array(
+                array(
+                    'name' => 'gallery_id',
+                    'referencedColumnName' => 'id',
+                ),
+            ),
+            'orphanRemoval' => false,
+        ));
 
         $collector->addAssociation($config['class']['work'], 'mapManyToOne', array(
             'fieldName' => 'author',

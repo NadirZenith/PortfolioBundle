@@ -31,6 +31,7 @@ abstract class Work implements WorkInterface
     protected $updatedAt;
     protected $author;
     protected $image;
+    protected $gallery;
     protected $collection;
 
     /**
@@ -172,33 +173,7 @@ abstract class Work implements WorkInterface
     {
         return $this->updatedAt;
     }
-    /**
-     * {@inheritdoc}
-      public function addComments(CommentInterface $comment)
-      {
-      $this->comments[] = $comment;
-      $comment->setPost($this);
-      }
-     */
-    /**
-     * {@inheritdoc}
-      public function setComments($comments)
-      {
-      $this->comments = new \Doctrine\Common\Collections\ArrayCollection;
-
-      foreach ($this->comments as $comment) {
-      $this->addComments($comment);
-      }
-      }
-     */
-    /**
-     * {@inheritdoc}
-      public function getComments()
-      {
-      return $this->comments;
-      }
-     */
-
+ 
     /**
      * {@inheritdoc}
      */
@@ -316,6 +291,21 @@ abstract class Work implements WorkInterface
     public function getImage()
     {
         return $this->image;
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function setGallery($gallery)
+    {
+        $this->gallery = $gallery;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
     }
 
     /**

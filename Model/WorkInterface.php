@@ -198,6 +198,17 @@ interface WorkInterface
      * @return mixed
      */
     public function getImage();
+    /**
+     * @param mixed $image
+     *
+     * @return mixed
+     */
+    public function setGallery($gallery);
+
+    /**
+     * @return mixed
+     */
+    public function getGallery();
 
     /**
      * @return \Sonata\ClassificationBundle\Model\CollectionInterface

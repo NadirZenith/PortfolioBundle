@@ -100,6 +100,11 @@ class WorkAdmin extends Admin
                     'context' => 'portfolio'
                 )
             ))
+            ->add('gallery', 'sonata_type_model_list', array('required' => false), array(
+                'link_parameters' => array(
+                    'context' => 'portfolio'
+                )
+            ))
             ->add('publicationDateStart', 'sonata_type_datetime_picker', array('dp_side_by_side' => true))
             ->end()
             ->with('Classification', array(
