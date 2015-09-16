@@ -77,6 +77,7 @@ class WorkAdmin extends Admin
             ->add('author', 'sonata_type_model_list')
             ->add('title')
             ->add('slug', null, array('required' => true))
+            ->add('link', 'url', array('required' => false))
             ->add('abstract', null, array('attr' => array('rows' => 5)))
             ->add('content', 'sonata_formatter_type', array(
                 'event_dispatcher' => $formMapper->getFormBuilder()->getEventDispatcher(),

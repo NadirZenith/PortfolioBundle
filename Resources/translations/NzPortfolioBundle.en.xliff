@@ -10,6 +10,10 @@
                 <source>work_details</source>
                 <target>Work details</target>
             </trans-unit>
+            <trans-unit id="work_link_value">
+                <source>work_link_value</source>
+                <target>See</target>
+            </trans-unit>
             <trans-unit id="title_archive">
                 <source>title_archive</source>
                 <target>Archive</target>
@@ -105,6 +109,10 @@
             <trans-unit id="form_label_slug">
                 <source>form.label_slug</source>
                 <target>Slug</target>
+            </trans-unit>
+            <trans-unit id="form_label_link">
+                <source>form.label_link</source>
+                <target>Link</target>
             </trans-unit>
             <trans-unit id="form_label_collection">
                 <source>form.label_collection</source>
@@ -213,6 +221,10 @@
             <trans-unit id="list_label_slug">
                 <source>list.label_slug</source>
                 <target>Slug</target>
+            </trans-unit>
+            <trans-unit id="list_label_link">
+                <source>list.label_link</source>
+                <target>Link</target>
             </trans-unit>
             <trans-unit id="list_label_description">
                 <source>list.label_description</source>

@@ -56,6 +56,9 @@
                     </ul>
                 </div>
             {% endif %}
+            {% if work.link|length %}
+                <a href="{{work.link}}" target="_blank">{{ 'work_link_value'|trans({}, 'NzPortfolioBundle') }}</a>
+            {% endif %}
 
         </div>
     </div>
