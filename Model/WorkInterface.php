@@ -81,7 +81,7 @@ interface WorkInterface
     /**
      * Set slug
      *
-     * @param integer $slug
+     * @param string $slug
      */
     public function setSlug($slug);
 
@@ -91,6 +91,19 @@ interface WorkInterface
      * @return integer $slug
      */
     public function getSlug();
+    /**
+     * Set link
+     *
+     * @param string $slug
+     */
+    public function setLink($slug);
+
+    /**
+     * Get slug
+     *
+     * @return string $link
+     */
+    public function getLink();
 
     /**
      * Set publication_date_start

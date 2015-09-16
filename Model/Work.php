@@ -20,6 +20,7 @@ abstract class Work implements WorkInterface
 
     protected $title;
     protected $slug;
+    protected $link;
     protected $abstract;
     protected $content;
     protected $rawContent;
@@ -124,6 +125,21 @@ abstract class Work implements WorkInterface
     public function getSlug()
     {
         return $this->slug;
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLink()
+    {
+        return $this->link;
     }
 
     /**
