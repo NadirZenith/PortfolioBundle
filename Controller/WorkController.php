@@ -17,6 +17,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Nz\PortfolioBundle\Model\WorkInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class WorkController extends Controller
 {
@@ -81,6 +82,29 @@ class WorkController extends Controller
         }
 
         return $response;
+    }
+
+    /**
+     * @param string  $tag
+     * @param Request $request
+     *
+     * @return Response
+     *
+     * @throws NotFoundHttpException
+     */
+    public function tagAction($tag, Request $request = null)
+    {
+
+        $tag = $this->get('sonata.classification.manager.tag')->findOneBy(array(
+            'slug' => $tag,
+            'enabled' => true,
+        ));
+
+        if (!$tag || !$tag->getEnabled()) {
+            throw new NotFoundHttpException('Unable to find the tag');
+        }
+
+        return $this->renderArchive(array('tag' => $tag->getSlug()), array('tag' => $tag), $request);
     }
 
     /**

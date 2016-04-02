@@ -113,7 +113,8 @@ class WorkAdmin extends Admin
             ))
             ->add('tags', 'sonata_type_model_autocomplete', array(
                 'property' => 'name',
-                'multiple' => 'true'
+                'multiple' => 'true',
+                'required' => false,
             ))
             ->add('collection', 'sonata_type_model_list', array('required' => false))
             ->end()

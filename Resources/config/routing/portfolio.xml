@@ -4,6 +4,12 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
+    <route id="nz_portfolio_tag" path="/tag/{tag}.{_format}">
+        <default key="_controller">NzPortfolioBundle:Work:tag</default>
+        <default key="_format">html</default>
+        <requirement key="_format">html|rss</requirement>
+    </route>
+    
     <route id="nz_portfolio_archive" pattern="/archive.{_format}">
         <default key="_controller">NzPortfolioBundle:Work:archive</default>
         <default key="_format">html</default>
@@ -20,4 +26,5 @@
     <route id="nz_portfolio_home" pattern="/">
         <default key="_controller">NzPortfolioBundle:Work:home</default>
     </route>
+    
 </routes>

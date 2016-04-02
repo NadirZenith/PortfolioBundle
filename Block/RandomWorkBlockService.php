@@ -48,10 +48,12 @@ class RandomWorkBlockService extends BaseBlockService
      */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
+        /*dd('asdf');*/
         $criteria = array(
             'mode' => $blockContext->getSetting('mode')
         );
-
+        /*$pager = $this->manager->getPager($criteria, 1, $blockContext->getSetting('number'));*/
+        /*d($pager->getResults());*/
         $parameters = array(
             'context'   => $blockContext,
             'settings'  => $blockContext->getSettings(),
@@ -98,7 +100,7 @@ class RandomWorkBlockService extends BaseBlockService
      */
     public function getName()
     {
-        return 'Random Work';
+        return 'Nz Portfolio Random Work';
     }
 
     /**

@@ -20,6 +20,7 @@ use Sonata\BlockBundle\Block\BlockContextInterface;
  */
 class PortfolioArchiveBreadcrumbBlockService extends BasePortfolioBreadcrumbBlockService
 {
+
     /**
      * {@inheritdoc}
      */
@@ -35,24 +36,24 @@ class PortfolioArchiveBreadcrumbBlockService extends BasePortfolioBreadcrumbBloc
     {
         $menu = $this->getRootMenu($blockContext);
 
-/*
-        if ($collection = $blockContext->getBlock()->getSetting('collection')) {
-            $menu->addChild($collection->getName(), array(
-                'route'           => 'sonata_news_collection',
-                'routeParameters' => array(
-                    'collection' => $collection->getSlug(),
-                ),
-            ));
-        }
+        /*
+          if ($collection = $blockContext->getBlock()->getSetting('collection')) {
+          $menu->addChild($collection->getName(), array(
+          'route'           => 'sonata_news_collection',
+          'routeParameters' => array(
+          'collection' => $collection->getSlug(),
+          ),
+          ));
+          }
+         */
         if ($tag = $blockContext->getBlock()->getSetting('tag')) {
             $menu->addChild($tag->getName(), array(
-                'route'           => 'sonata_news_tag',
+                'route' => 'nz_portfolio_tag',
                 'routeParameters' => array(
                     'tag' => $tag->getSlug(),
                 ),
             ));
         }
- */
 
         return $menu;
     }

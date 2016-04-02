@@ -226,9 +226,9 @@
                 <source>link_next_page</source>
                 <target>Next page</target>
             </trans-unit>
-            <trans-unit id="view_all_works">
-                <source>view_all_works</source>
-                <target>view_all_works</target>
+            <trans-unit id="view_all_work">
+                <source>view_all_work</source>
+                <target>Ver todos los trabajos</target>
             </trans-unit>
             <trans-unit id="work_is_public">
                 <source>work_is_public</source>
@@ -248,7 +248,7 @@
             </trans-unit>
             <trans-unit id="nz_portfolio_archive_breadcrumb">
                 <source>nz_portfolio_archive_breadcrumb</source>
-                <target>nz_portfolio_archive_breadcrumb</target>
+                <target>Trabajos</target>
             </trans-unit>
             <trans-unit id="group_general">
                 <source>group_general</source>
@@ -262,6 +262,7 @@
                 <source>sidemenu.link_edit_work</source>
                 <target>sidemenu.link_edit_work</target>
             </trans-unit>
+            
         </body>
     </file>
 </xliff>
