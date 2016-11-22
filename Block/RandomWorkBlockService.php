@@ -20,20 +20,22 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 
 use Sonata\BlockBundle\Model\BlockInterface;
-use Sonata\BlockBundle\Block\BaseBlockService;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Sonata\BlockBundle\Block\Service\AbstractBlockService;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+use Sonata\CoreBundle\Model\Metadata;
 
 /**
  *
  * @author     Nadir Zenith <2cb.md2@gmail.com>
  */
-class RandomWorkBlockService extends BaseBlockService
+class RandomWorkBlockService extends AbstractBlockService
 {
     protected $manager;
 
     /**
-     * @param string           $name
-     * @param EngineInterface  $templating
+     * @param string $name
+     * @param EngineInterface $templating
      * @param ManagerInterface $manager
      */
     public function __construct($name, EngineInterface $templating, ManagerInterface $manager)
@@ -48,23 +50,20 @@ class RandomWorkBlockService extends BaseBlockService
      */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
-        /*dd('asdf');*/
         $criteria = array(
             'mode' => $blockContext->getSetting('mode')
         );
-        /*$pager = $this->manager->getPager($criteria, 1, $blockContext->getSetting('number'));*/
-        /*d($pager->getResults());*/
+
         $parameters = array(
-            'context'   => $blockContext,
-            'settings'  => $blockContext->getSettings(),
-            'block'     => $blockContext->getBlock(),
-            'pager'     => $this->manager->getPager($criteria, 1, $blockContext->getSetting('number'))
+            'context'  => $blockContext,
+            'settings' => $blockContext->getSettings(),
+            'block'    => $blockContext->getBlock(),
+            'pager'    => $this->manager->getPager($criteria, 1, $blockContext->getSetting('number'))
         );
 
         if ($blockContext->getSetting('mode') === 'admin') {
             return $this->renderPrivateResponse($blockContext->getTemplate(), $parameters, $response);
         }
-
         return $this->renderResponse($blockContext->getTemplate(), $parameters, $response);
     }
 
@@ -106,13 +105,32 @@ class RandomWorkBlockService extends BaseBlockService
     /**
      * {@inheritdoc}
      */
-    public function setDefaultSettings(OptionsResolverInterface $resolver)
+    public function configureSettings(OptionsResolver $resolver)
     {
+
         $resolver->setDefaults(array(
-            'number'     => 5,
-            'mode'       => 'public',
-            'title'      => 'Random work',
-            'template'   => 'NzPortfolioBundle:Block:random_work.html.twig'
+            'number'   => 5,
+            'mode'     => 'public',
+            'title'    => 'Random work',
+            'template' => 'NzPortfolioBundle:Block:random_work.html.twig'
         ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockMetadata($code = null)
+    {
+        return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false, 'NzPortfolioBundle', array(
+            'class' => 'fa fa-pencil',
+        ));
+    }
+
+    public function preUpdate(BlockInterface $block)
+    {
+    }
+
+    public function postUpdate()
+    {
     }
 }
